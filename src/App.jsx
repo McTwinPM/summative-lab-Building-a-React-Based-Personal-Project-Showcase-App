@@ -1,6 +1,9 @@
-import { useState } from 'react'
+import React from 'react';
+import Home from './pages/Home';
+import Admin from './pages/Admin';
+import Games from './pages/Games';
 import './App.css'
-import NavBar from './components/Navbar'
+import Navbar from './components/Navbar'
 import {BrowserRouter, Routes, Route } from "react-router-dom"
 
 function App() {
@@ -8,7 +11,6 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/games" element={<Games />} />

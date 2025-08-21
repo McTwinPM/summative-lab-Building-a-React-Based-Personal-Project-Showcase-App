@@ -1,19 +1,21 @@
-import NavBar from '../components/NavBar';
+import Navbar from '../components/Navbar';
 import { useState } from 'react';
 
 function Games() {
   const [games, setGames] = useState([]);
 
   return (
-    <div>
-      <NavBar />
-      <h1>Games</h1>
-      <ul>
-        {games.map((game) => (
-          <li key={game.id}>{game.name}</li>
-        ))}
-      </ul>
-    </div>
+    <>
+      <Navbar />
+      <div>
+        <h1>Games</h1>
+        {/* <ul>
+          {games.map((game) => (
+            <li key={game.id}>{game.name}</li>
+          ))}
+        </ul> */}
+      </div>
+    </>
   );
 }
 
