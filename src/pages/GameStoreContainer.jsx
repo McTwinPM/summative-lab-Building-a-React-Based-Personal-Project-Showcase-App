@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import { use, useState } from 'react';
+import { use, useState, useEffect } from 'react';
 import gamesMartData from '../GamesMartData';
 
 function Games() {
@@ -8,15 +8,16 @@ function Games() {
 
   useEffect(() => {
     const fetchStores = async () => {
-      const response = await fetch('/api/game-stores');
-      const data = await response.json();
-      return data;
-      return Promise.resolve({
-        ok: true,
-        status: 200,
-        json: () => { return { gamesMartData }; }
-      });
-    };
+  try {
+    const response = await fetch('/api/game-stores');
+    if (!response.ok) throw new Error('Network error');
+    const data = await response.json();
+    setStores(data);
+  } catch (error) {
+    // fallback to local data
+    setStores(gamesMartData.stores);
+  }
+};
 
     fetchStores();
   }, []);

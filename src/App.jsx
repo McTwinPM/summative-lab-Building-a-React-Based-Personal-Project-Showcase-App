@@ -5,23 +5,21 @@ import GameStoreContainer from './pages/GameStoreContainer';
 import GameStoreList from './pages/GameStoreList';
 import GameStoreCard from './pages/GameStoreCard';
 import './App.css'
-import {BrowserRouter, Routes, Route } from "react-router-dom"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 function App() {
-  
-
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/game-stores" element={<GameStoreContainer />} />
-          <Route index element={<GameStoreList />} />
-          <Route path=":id" element={<GameStoreCard />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/game-stores" element={<GameStoreContainer />}>
+          <Route index element={<GameStoreList />} />
+          <Route path=":storeId" element={<GameStoreCard />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
 }
 
-
-export default App
+export default App;

@@ -7,7 +7,6 @@ function GameStoreList() {
 
   return (
     <div>
-      <h2>Game Stores</h2>
       <ul>
         {stores.map((store) => (
           <li key={store.id}>
