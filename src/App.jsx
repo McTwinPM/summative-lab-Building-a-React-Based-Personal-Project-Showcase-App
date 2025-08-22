@@ -16,6 +16,7 @@ function App() {
         <Route path="/game-stores" element={<GameStoreContainer />}>
           <Route index element={<GameStoreList />} />
           <Route path=":storeId" element={<GameStoreCard />} />
+          <Route path=":storeId/games/:gameId" element={<div>GameCard</div>} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -33,7 +33,23 @@ const gamesMartData = {
       "id": 2,
       "name": "Oklahoma City, Oklahoma",
       "description": "Southwest location",
-      "phone_number": "555-5557"
+      "phone_number": "555-5557",
+      "games": [
+        {
+          "id": 4,
+          "description": "A thrilling journey through a post-apocalyptic world",
+          "name": "The Last of Us Part II",
+          "tags": "Action-Adventure",
+          "price": 60.00
+        },
+        {
+          "id": 5,
+          "description": "A heartwarming tale of friendship and adventure",
+          "name": "Spiritfarer",
+          "tags": "Indie",
+          "price": 30.00
+        },
+      ]
     }
    ],
   "games": [
