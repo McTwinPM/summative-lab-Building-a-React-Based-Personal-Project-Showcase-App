@@ -2,7 +2,8 @@ import { Outlet, Link, useOutletContext, useParams } from "react-router-dom";
 
 function GameStoreCard() {
   const { storeId } = useParams();
-  const { stores } = useOutletContext();
+  const outletContext = useOutletContext() || {};
+  const { stores = [] } = outletContext;
 
   const store = stores.find((s) => s.id === parseInt(storeId));
 
