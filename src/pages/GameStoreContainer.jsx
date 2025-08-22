@@ -1,9 +1,9 @@
 import { Outlet } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import { use, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import gamesMartData from '../GamesMartData';
 
-function Games() {
+function GameStoreContainer() {
   const [stores, setStores] = useState([]);
 
   useEffect(() => {
@@ -34,4 +34,4 @@ function Games() {
   );
 }
 
-export default Games;
+export default GameStoreContainer;

@@ -4,6 +4,7 @@ import Admin from './pages/Admin';
 import GameStoreContainer from './pages/GameStoreContainer';
 import GameStoreList from './pages/GameStoreList';
 import GameStoreCard from './pages/GameStoreCard';
+import GameCard from './pages/GameCard';
 import './App.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
@@ -16,7 +17,7 @@ function App() {
         <Route path="/game-stores" element={<GameStoreContainer />}>
           <Route index element={<GameStoreList />} />
           <Route path=":storeId" element={<GameStoreCard />} />
-          <Route path=":storeId/games/:gameId" element={<div>GameCard</div>} />
+          <Route path=":storeId/games/:gameId" element={<GameCard />} />
         </Route>
       </Routes>
     </BrowserRouter>
