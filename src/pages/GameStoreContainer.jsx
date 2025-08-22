@@ -14,7 +14,6 @@ function GameStoreContainer() {
     const data = await response.json();
     setStores(data);
   } catch (error) {
-    // fallback to local data
     setStores(gamesMartData.stores);
   }
 };
