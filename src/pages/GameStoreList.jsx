@@ -8,9 +8,9 @@ function GameStoreList() {
   return (
     <div>
       <ul>
-        {stores.map((store) => (
+        {displayStores.map((store) => (
           <li key={store.id}>
-            <Link to={`/game-stores/${store.id}`}>{store.name}</Link>
+            <Link to={`/game-stores/${store.id}`}>{store.location}</Link>
           </li>
         ))}
       </ul>

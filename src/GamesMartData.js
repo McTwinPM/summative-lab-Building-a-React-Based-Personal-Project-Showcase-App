@@ -2,7 +2,7 @@ const gamesMartData = {
  "stores": [
     {
       "id": 1,
-      "name": "New York, New York",
+      "location": "New York, New York",
       "description": "Main location",
       "phone_number": "555-5555",
       "games": [
@@ -31,7 +31,7 @@ const gamesMartData = {
     },
     {
       "id": 2,
-      "name": "Oklahoma City, Oklahoma",
+      "location": "Oklahoma City, Oklahoma",
       "description": "Southwest location",
       "phone_number": "555-5557",
       "games": [
