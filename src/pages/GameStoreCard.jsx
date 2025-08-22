@@ -1,5 +1,6 @@
 import { Outlet, Link, useOutletContext, useParams } from "react-router-dom";
 import { useState } from 'react';
+import SearchBar from "../components/SearchBar";
 
 function GameStoreCard() {
   const { storeId } = useParams();
@@ -27,6 +28,7 @@ function GameStoreCard() {
       <p>{store.description}</p>
       <p>{store.phone_number}</p>
       <h3>Games:</h3>
+      <SearchBar />
       <ul>
         {store.games.map((game) => (
           <li key={game.id}>
