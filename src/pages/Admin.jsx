@@ -2,24 +2,7 @@ import Navbar from '../components/Navbar';
 import { useState, useEffect } from 'react';
 import gamesMartData from '../GamesMartData';
 
-function Admin() {
-  // const [games, setGames] = useState([]);
-  const [stores, setStores] = useState([]);
-
-  useEffect(() => {
-    const fetchStores = async () => {
-      try {
-        const response = await fetch('/api/game-stores');
-        if (!response.ok) throw new Error('Network error');
-        const data = await response.json();
-        setStores(data);
-      } catch (error) {
-        setStores(gamesMartData.stores);
-      }
-    };
-
-    fetchStores();
-  }, []);
+function Admin({ stores, setStores }) {
 
   function handleSubmitStores(event) {
     event.preventDefault();
