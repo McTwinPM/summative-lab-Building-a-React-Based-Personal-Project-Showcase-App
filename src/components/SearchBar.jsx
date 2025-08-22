@@ -1,8 +1,7 @@
 import React, { useRef, useState, useContext, useEffect } from "react";
 
 
-function SearchBar() {
-    const [searchTerm, setSearchTerm] = useState("");
+function SearchBar({ searchTerm, setSearchTerm }) {
     const searchInputRef = useRef(null);
 
     useEffect(() => {

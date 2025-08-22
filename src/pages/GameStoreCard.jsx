@@ -3,6 +3,7 @@ import { useState } from 'react';
 import SearchBar from "../components/SearchBar";
 
 function GameStoreCard() {
+  const [searchTerm, setSearchTerm] = useState('');
   const { storeId } = useParams();
   const outletContext = useOutletContext() || {};
   const { stores = [], setStores } = outletContext;
@@ -21,6 +22,9 @@ function GameStoreCard() {
       )
     );
   }
+  const filteredGames = store.games.filter((game) =>
+    game.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div>
@@ -28,9 +32,9 @@ function GameStoreCard() {
       <p>{store.description}</p>
       <p>{store.phone_number}</p>
       <h3>Games:</h3>
-      <SearchBar />
+      <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <ul>
-        {store.games.map((game) => (
+        {filteredGames.map((game) => (
           <li key={game.id}>
             <Link to={`/game-stores/${storeId}/games/${game.id}`}>{game.name}</Link>
           </li>
