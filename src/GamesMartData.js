@@ -1,5 +1,5 @@
 const gamesMartData = {
- "locations": [
+ "stores": [
     {
       "id": 1,
       "name": "New York, New York",
