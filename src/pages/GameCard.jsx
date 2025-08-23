@@ -1,4 +1,5 @@
-import { useOutletContext, useParams } from "react-router-dom"
+import { json, useOutletContext, useParams } from "react-router-dom"
+import gamesMartData from "../GamesMartData";
 
 
 function GameCard() {
@@ -12,35 +13,21 @@ function GameCard() {
     if (!game) return <div>Game not found</div>;
 
     const handlePriceChange = (newPrice) => {
-        // Update the game price
-        fetch(`/api/game-stores/${storeId}/games/${gameId}`, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ ...game, price: newPrice }),
-        })
-        .then((response) => {
-            if (!response.ok) throw new Error('Network error');
-            return response.json();
-        })
-        .then((updatedGame) => {
-            // Update the local state with the new game data
-            const updatedStores = stores.map((s) => {
-                if (s.id === parseInt(storeId)) {
-                    return {
-                        ...s,
-                        games: s.games.map((g) => (g.id === parseInt(gameId) ? updatedGame : g)),
-                    };
+    setStores(stores =>
+        stores.map(s =>
+            s.id === parseInt(storeId)
+                ? {
+                    ...s,
+                    games: s.games.map(g =>
+                        g.id === parseInt(gameId)
+                            ? { ...g, price: newPrice }
+                            : g
+                    ),
                 }
-                return s;
-            });
-            setStores(updatedStores);
-        })
-        .catch((error) => {
-            console.error('Error updating game price:', error);
-        });
-    };
+                : s
+        )
+    );
+};
 
     return (
         <div className="game-card">

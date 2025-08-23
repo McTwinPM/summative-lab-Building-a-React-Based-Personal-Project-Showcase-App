@@ -35,7 +35,6 @@ function Admin({ stores, setStores }) {
       tags: event.target.tags.value.split(',').map(tag => tag.trim()),
       price: parseFloat(event.target.price.value),
     };
-    // setGames([...games, newGame]);
     setStores(stores =>
     stores.map(store =>
       store.location === event.target.location.value

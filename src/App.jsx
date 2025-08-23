@@ -12,19 +12,17 @@ import gamesMartData from './GamesMartData';
 
 function App() {
   const [stores, setStores] = useState([]);
-
+  const fetchStores = async () => {
+    try {
+      const response = await fetch('/api/game-stores');
+      if (!response.ok) throw new Error('Network error');
+      const data = await response.json();
+      setStores(data);
+    } catch (error) {
+      setStores(gamesMartData.stores);
+    }
+  };
   useEffect(() => {
-    const fetchStores = async () => {
-  try {
-    const response = await fetch('/api/game-stores');
-    if (!response.ok) throw new Error('Network error');
-    const data = await response.json();
-    setStores(data);
-  } catch (error) {
-    setStores(gamesMartData.stores);
-  }
-};
-
     fetchStores();
   }, []);
 
@@ -36,7 +34,7 @@ function App() {
         <Route path="/game-stores" element={<GameStoreContainer stores={stores} setStores={setStores} />}>
           <Route index element={<GameStoreList />} />
           <Route path=":storeId" element={<GameStoreCard />} />
-          <Route path=":storeId/games/:gameId" element={<GameCard />} />
+          <Route path=":storeId/games/:gameId" element={<GameCard fetchStores={fetchStores}/>} />
         </Route>
       </Routes>
     </BrowserRouter>
