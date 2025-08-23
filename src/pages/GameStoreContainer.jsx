@@ -9,7 +9,7 @@ function GameStoreContainer({ stores, setStores }) {
     <>
       <Navbar />
       <div>
-        <h1>Game Stores</h1>
+        <h1 data-testid="game-stores-heading">Game Stores</h1>
         <Outlet context={{ stores, setStores }} />
       </div>
     </>
